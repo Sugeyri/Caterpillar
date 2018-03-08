@@ -1,0 +1,69 @@
+﻿@model ProyectoCat.Models.Reunion
+
+@{
+    ViewData["Title"] = "Edicion";
+}
+@if (Session.Administrador)
+{
+    Layout = "Admin";
+
+}
+@if (Session.Activo)
+{
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <br />
+    <div class="row">
+        <div id="registro" class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br /><h4 style="color:antiquewhite"><strong>Edición</strong></h4>
+                <br />
+                <input type="hidden" asp-for="ID" />
+                <div class="form-group">
+                    <label asp-for="Título" style="color:antiquewhite" class="control-label"></label>
+                    <input asp-for="Título" class="form-control" />
+                    <span asp-validation-for="Título" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DíaYHora" style="color:antiquewhite" class="control-label"></label>
+                    <input asp-for="DíaYHora" class="form-control" />
+                    <span asp-validation-for="DíaYHora" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UsuarioId" style="color:antiquewhite" class="control-label"></label>
+                    <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId"></select>
+                    <span asp-validation-for="UsuarioId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label style="color:antiquewhite">
+                            <input asp-for="Virtual" /> @Html.DisplayNameFor(model => model.Virtual)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ClienteId" style="color:antiquewhite" class="control-label"></label>
+                    <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                    <span asp-validation-for="ClienteId" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <a class="btn btn-default" asp-action="Index"><span class="glyphicon glyphicon-arrow-left"></span></a>
+                    <input type="submit" value="Guardar Cambios" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+@if (Session.Activo == false)
+{
+
+    Layout = "Login";
+
+    <img src="https://www.seminuevos.com/assets/brands/vehiclesBrands/png/caterpillar.png" />
+    <h4>Lo sentimos, no se ha registrado!</h4>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

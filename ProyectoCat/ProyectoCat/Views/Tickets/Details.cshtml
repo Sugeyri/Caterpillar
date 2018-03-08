@@ -1,0 +1,62 @@
+﻿@model ProyectoCat.Models.Tickets
+
+@{
+    ViewData["Title"] = "Detalle";
+}
+@if (Session.Administrador)
+{
+    Layout = "Admin";
+
+}
+@if (Session.Activo)
+{
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <br />
+    <h3 style="color:antiquewhite">Ver Detalle Ticket</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:antiquewhite">
+            @Html.DisplayNameFor(model => model.Título)
+        </dt>
+        <dd style="color:antiquewhite">
+            @Html.DisplayFor(model => model.Título)
+        </dd>
+        <dt style="color:antiquewhite">
+            @Html.DisplayNameFor(model => model.Detalle)
+        </dt>
+        <dd style="color:antiquewhite">
+            @Html.DisplayFor(model => model.Detalle)
+        </dd>
+        <dt style="color:antiquewhite">
+            @Html.DisplayNameFor(model => model.Reporta)
+        </dt>
+        <dd style="color:antiquewhite">
+            @Html.DisplayFor(model => model.Reporta)
+        </dd>
+        <dt style="color:antiquewhite">
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+        <dd style="color:antiquewhite">
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </dd>
+        <dt style="color:antiquewhite">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd style="color:antiquewhite">
+            @Html.DisplayFor(model => model.Estado.Nombre)
+        </dd>
+    </dl>
+    <div>
+        <a class="btn btn-default" asp-action="Index"><span class="glyphicon glyphicon-arrow-left"></span></a>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.ID">Editar</a>
+    </div>
+}
+@if (Session.Activo == false)
+{
+
+    Layout = "Login";
+
+    <img src="https://www.seminuevos.com/assets/brands/vehiclesBrands/png/caterpillar.png" />
+    <h4>Lo sentimos, no se ha registrado!</h4>
+}

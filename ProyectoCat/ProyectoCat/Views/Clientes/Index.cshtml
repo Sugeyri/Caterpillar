@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Cliente>
+
+
+@{
+    ViewData["Title"] = "Inicio Clientes";
+}
+@if (Session.Administrador)
+{
+    Layout = "Admin";
+
+}
+@if (Session.Activo)
+{
+
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <br /><br />
+    <div class=" navbar-right">
+        <a class="btn btn-default" asp-action="Create"> <span class="glyphicon glyphicon-plus"></span> </a>
+
+    </div>
+    <br /><br />
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CédulaJurídica)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PáginaWeb)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DirecciónFísica)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdSector)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CédulaJurídica)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PáginaWeb)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DirecciónFísica)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sector.Nombre)
+                        </td>
+                        <td>
+                            <a class="btn btn-xs btn-warning" asp-action="Edit" asp-route-id="@item.ID"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a class="btn btn-xs btn-danger" asp-action="Delete" asp-route-id="@item.ID"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a class="btn btn-xs btn-info" asp-action="Details" asp-route-id="@item.ID"><span class="glyphicon glyphicon-list-alt"></span></a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+    @if (Session.Activo == false)
+    {
+
+        Layout = "Login";
+
+        <img src="https://www.seminuevos.com/assets/brands/vehiclesBrands/png/caterpillar.png" />
+        <h4>Lo sentimos, no se ha registrado!</h4>
+    }

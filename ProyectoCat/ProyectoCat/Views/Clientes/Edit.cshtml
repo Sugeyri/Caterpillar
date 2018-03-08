@@ -1,0 +1,66 @@
+﻿@model Cliente
+
+@{
+    ViewData["Title"] = "Edicion";
+}
+@if (Session.Administrador)
+{
+    Layout = "Admin";
+
+}
+@if (Session.Activo)
+{
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <br />
+    <div class="row">
+        <div id="registro" class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br /><h4 style="color:antiquewhite"><strong>Edición</strong></h4>
+                <br />
+                <input type="hidden" asp-for="ID" />
+                <div class="form-group">
+                    <label asp-for="Nombre" style="color:antiquewhite" class="control-label">Nombre</label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CédulaJurídica" style="color:antiquewhite" class="control-label"> Cédula Jurídica</label>
+                    <input asp-for="CédulaJurídica" class="form-control" />
+                    <span asp-validation-for="CédulaJurídica" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PáginaWeb" style="color:antiquewhite" class="control-label"> Página Web</label>
+                    <input asp-for="PáginaWeb" class="form-control" />
+                    <span asp-validation-for="PáginaWeb" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DirecciónFísica" style="color:antiquewhite" class="control-label">Dirección Física</label>
+                    <input asp-for="DirecciónFísica" class="form-control" />
+                    <span asp-validation-for="DirecciónFísica" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdSector" style="color:antiquewhite" class="control-label">Sector</label>
+                    <select asp-for="IdSector" class="form-control" asp-items="ViewBag.IdSector"></select>
+                </div><br />
+                <div class="form-group">
+                    <a class="btn btn-default" asp-action="Index"><span class="glyphicon glyphicon-arrow-left"></span></a>
+                    <input type="submit" value="Guardar Cambios" class="btn btn-success" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+}
+    @if (Session.Activo == false)
+    {
+
+        Layout = "Login";
+
+        <img src="https://www.seminuevos.com/assets/brands/vehiclesBrands/png/caterpillar.png" />
+        <h4>Lo sentimos, no se ha registrado!</h4>
+    }
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

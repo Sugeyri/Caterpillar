@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "Login";
+}
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+    <link href="~/css/login.css" rel="stylesheet" />
+
+    <body>
+        <div class="container">
+            <form class="form-horizontal" role="form" method="POST">
+                <div class="row">
+                </div>
+                <div id="login">
+                    <img src="https://www.seminuevos.com/assets/brands/vehiclesBrands/png/caterpillar.png" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group has-danger">
+                                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                    <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"><span class="glyphicon glyphicon-user"></span></i></div>
+                                    <input type="text" name="NombreUsuario" class="form-control" id="NombreUsuario" placeholder="Nombre de Usuario" required autofocus>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                    <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"><span class="glyphicon glyphicon-lock"></span></i></div>
+                                    <input type="password" name="Contrasenna" class="form-control" id="Contrasenna" placeholder="Contraseña" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row" style="padding-top: 1rem">
+                        <div class="col-md-6">
+                            <button type="submit" asp-controller="Usuarios" asp-action="InicioSession" class="btn btn-success"> Iniciar Sesión</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>

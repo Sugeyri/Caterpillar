@@ -1,0 +1,38 @@
+﻿@model ProyectoCat.Models.Reunion
+@{
+    ViewData["Title"] = "Eliminar";
+}
+@if (Session.Administrador)
+{
+    Layout = "Admin";
+
+}
+@if (Session.Activo)
+{
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <br />
+    <div class="row">
+        <br />
+        <h3 style="color:antiquewhite">Seguro de eliminar este Registro?</h3>
+        <br />
+
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ID" />
+
+            <a class="btn btn-default" asp-action="Index"><span class="glyphicon glyphicon-arrow-left"></span></a>
+            <input type="submit" value="Si" class="btn btn-success" />
+            <br /><br />
+        </form>
+    </div>
+
+}
+@if (Session.Activo == false)
+{
+
+    Layout = "Login";
+
+    <img src="https://www.seminuevos.com/assets/brands/vehiclesBrands/png/caterpillar.png" />
+    <h4>Lo sentimos, no se ha registrado!</h4>
+}

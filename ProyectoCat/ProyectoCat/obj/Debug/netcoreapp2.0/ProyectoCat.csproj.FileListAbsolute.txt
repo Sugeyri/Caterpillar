@@ -1,0 +1,11 @@
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\bin\Debug\netcoreapp2.0\ProyectoCat.deps.json
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\bin\Debug\netcoreapp2.0\ProyectoCat.runtimeconfig.json
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\bin\Debug\netcoreapp2.0\ProyectoCat.runtimeconfig.dev.json
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\bin\Debug\netcoreapp2.0\ProyectoCat.dll
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\bin\Debug\netcoreapp2.0\ProyectoCat.pdb
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\obj\Debug\netcoreapp2.0\ProyectoCat.csprojResolveAssemblyReference.cache
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\obj\Debug\netcoreapp2.0\ProyectoCat.csproj.CoreCompileInputs.cache
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\obj\Debug\netcoreapp2.0\ProyectoCat.AssemblyInfoInputs.cache
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\obj\Debug\netcoreapp2.0\ProyectoCat.AssemblyInfo.cs
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\obj\Debug\netcoreapp2.0\ProyectoCat.dll
+C:\Users\Toshiba\Documents\UTN\VII CUATRI\PROGRA2\ProyectoCat\ProyectoCat\obj\Debug\netcoreapp2.0\ProyectoCat.pdb

@@ -1,0 +1,73 @@
+﻿@model ProyectoCat.Models.Usuario
+
+
+@{
+    ViewData["Title"] = "Nuevo";
+}
+@if (Session.Administrador)
+{
+    Layout = "Admin";
+
+}
+@if (Session.Activo)
+{
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <br />
+    <div class="row">
+        <div id="registro" class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br /><h4 style="color:antiquewhite"><strong>Nuevo Registro</strong></h4>
+                <br />
+                <div class="form-group">
+                    <label asp-for="Nombre" style="color:antiquewhite" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Correo" style="color:antiquewhite" class="control-label"></label>
+                    <input asp-for="Correo" class="form-control" />
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label style="color:antiquewhite">
+                            <input asp-for="Administrador" /> @Html.DisplayNameFor(model => model.Administrador)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NombreUsuario" style="color:antiquewhite" class="control-label"></label>
+                    <input asp-for="NombreUsuario" class="form-control" />
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contrasenna" style="color:antiquewhite" class="control-label"></label>
+                    <input asp-for="Contrasenna" type="password" class="form-control" />
+                    <span asp-validation-for="Contrasenna" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ccontrasenna" style="color:antiquewhite" class="control-label"></label>
+                    <input asp-for="Ccontrasenna" type="password" class="form-control" />
+                    <span asp-validation-for="Ccontrasenna" class="text-danger"></span>
+                </div> <br />
+                <div class="form-group">
+                    <a class="btn btn-default" asp-action="Index"><span class="glyphicon glyphicon-arrow-left"></span></a>
+                    <input type="submit" value="Guardar" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+@if (Session.Activo == false)
+{
+
+    Layout = "Login";
+
+    <img src="https://www.seminuevos.com/assets/brands/vehiclesBrands/png/caterpillar.png" />
+    <h4>Lo sentimos, no se ha registrado!</h4>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
